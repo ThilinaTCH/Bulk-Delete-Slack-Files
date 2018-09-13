@@ -3,11 +3,11 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Delete Slack Files in Bulk</title>
+  <title>Huubhr-Slack</title>
   <meta name="description" content="Delete multiple Slack files and in one go. Save yourself time having to delete them one by one.">
   <meta name="keywords" content="Delete, Slack, Files, Bulk, Remove, Erase, Multiple">
   <meta name="author" content="Ali Bojarpour">
-  <link id="favicon" rel="shortcut icon" href="https://slack.global.ssl.fastly.net/272a/img/icons/favicon-32.png" sizes="16x16 32x32 48x48" type="image/png" />
+  <link id="favicon" rel="shortcut icon" href="https://huubap.com/assets/favicons/apple-icon-57x57.png" sizes="16x16 32x32 48x48" type="image/png" />
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <!-- Optional theme -->
@@ -22,7 +22,6 @@
 
 <body>
   <div class="container">
-    <a href="https://github.com/alibojar/Bulk-Delete-Slack-Files"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"></a>
     <div slack-info>
       <h1>Delete Slack Files in Bulk</h1>
       <div>
@@ -32,7 +31,6 @@
         <label>Slack token:
           <input style="width: 350px;" ng-model="slackInfoVm.token" type="text" />
         </label>
-        <a href="https://slack.com/signin" target="_black">Sign in slack</a>, if you are not already, and find - or generate - your <code>slack token</code> from the bottom of <a href="https://api.slack.com/web" target="_black">this page</a>.
       </div>
       <div>
         <label>I am
@@ -42,10 +40,9 @@
         </label>
       </div>
       <div>
-        <label>Files created
-          <select ng-cloak ng-model="slackInfoVm.days" ng-options="days for days in slackInfoVm.daysList">
-          </select>
-          days ago.
+        <label>Files created date, 
+          From: <input type="date" ng-model="slackInfoVm.fromDate" name="fromDate">
+          To: <input type="date" ng-model="slackInfoVm.toDate" name="toDate">
         </label>
       </div>
       <div>

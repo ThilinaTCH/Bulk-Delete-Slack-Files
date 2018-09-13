@@ -4,6 +4,8 @@
     var slackInfoVm = this;
 
     slackInfoVm.response = '';
+    slackInfoVm.fromDate = new Date();
+    slackInfoVm.toDate = new Date();
     slackInfoVm.deleteCount = 0;
     slackInfoVm.token;
     slackInfoVm.daysList = ['now', 1, 2, 7, 14, 30, 60, 90];
@@ -13,17 +15,20 @@
       slackServer.getUsers(slackInfoVm.token)
         .then(function(data) {
           var users = data.data.members;
+          if(users && users.length > 0){
+            var allUsers = [{id: "all", name: "All"}];
+            users = allUsers.concat(data.data.members);
+          }
           slackInfoVm.usersList = users;
         });
     });
 
-
     slackInfoVm.deleteFiles = function() {
-      if (!slackInfoVm.token || !slackInfoVm.user || !slackInfoVm.days) {
+      if (!slackInfoVm.token || !slackInfoVm.user || !slackInfoVm.fromDate || !slackInfoVm.toDate) {
         alert('All options must be selected');
         return;
       }
-      slackServer.getFiles(slackInfoVm.token, slackInfoVm.user, slackInfoVm.days)
+      slackServer.getFiles(slackInfoVm.token, slackInfoVm.user, slackInfoVm.fromDate, slackInfoVm.toDate)
         .then(function(data) {
           var response = data.data;
           if (!response.ok) return;

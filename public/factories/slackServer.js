@@ -16,13 +16,14 @@
 
     }
 
-    var getFiles = function(token, user, days) {
+    var getFiles = function(token, user, fromDate, toDate) {
       var _url = url + 'files.list';
-      var d = new Date();
-      var daysAgo = d.setDate(d.getDate() - days);
+      var d_from = new Date(fromDate);
+      var d_to = new Date(toDate);
       var postData = {
-        ts_to: Math.round(daysAgo / 1000),
-        user: user,
+        ts_from: Math.round(d_from / 1000),
+        ts_to: Math.round(d_to / 1000),
+        user: user == "all" ? "" : user,
         token: token
       };
       return $http({
