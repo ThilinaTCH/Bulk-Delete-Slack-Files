@@ -27,6 +27,8 @@
       <div>
         <p>Slack allows for a maximum of 1000 files to be deleted at one go. If your files are more than 100, refresh and repeat untill they are all deleted.</p>
       </div>
+      <p>Use following url (Legacy information Section) to generate a slack token to use here - <a href="https://api.slack.com/custom-integrations/legacy-tokens" target="_blank">Generate Slack Token</a><br/>
+      **You should be logged into your slack team to view token creation part in above page</p>
       <div>
         <label>Slack token:
           <input style="width: 350px;" ng-model="slackInfoVm.token" type="text" />
@@ -40,15 +42,15 @@
         </label>
       </div>
       <div>
-        <label>Files created date, 
+        <label>Files created date,
         </label>
         <div>
-        <label>From: 
+        <label>From:
           <input type="date" ng-model="slackInfoVm.fromDate" name="fromDate"><br />
         </label>
         </div>
         <div>
-        <label>To: 
+        <label>To:
           <input type="date" ng-model="slackInfoVm.toDate" name="toDate">
         </label>
         </div>
