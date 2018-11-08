@@ -11,6 +11,17 @@
     slackInfoVm.daysList = ['now', 1, 2, 7, 14, 30, 60, 90];
     slackInfoVm.days = slackInfoVm.daysList[slackInfoVm.daysList.length - 1];
 
+    Array.prototype.delayedForEach = function(callback, timeout, thisArg){
+      var i = 0,
+        l = this.length,
+        self = this,
+        caller = function(){
+          callback.call(thisArg || self, self[i], i, self);
+          (++i < l) && setTimeout(caller, timeout);
+        };
+      caller();
+    };
+
     $scope.$watch('slackInfoVm.token', function() {
       slackServer.getUsers(slackInfoVm.token)
         .then(function(data) {
@@ -33,7 +44,7 @@
           var response = data.data;
           if (!response.ok) return;
           if (response.files.length === 0) alert('No file left');
-          response.files.forEach(function(file) {
+          response.files.delayedForEach(function(file, index, array) {
             var deleteMsg = 'Deleting: ' + file.title;
             var newLine = '\n\r';
             slackInfoVm.response += deleteMsg;
@@ -41,7 +52,7 @@
             slackServer.deleteFiles(slackInfoVm.token, file.id).then(function(data) {
               slackInfoVm.deleteCount++;
             });
-          });
+          }, 750);
         });
     }
 

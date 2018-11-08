@@ -23,9 +23,9 @@
 <body>
   <div class="container">
     <div slack-info>
-      <h1>Delete Slack Files in Bulk</h1>
+      <h1>Huubhr - Delete Slack Files in Bulk</h1>
       <div>
-        <p>Slack allows for a maximum of 100 files to be deleted at one go. If your files are more than 100, refresh and repeat untill they are all deleted.</p>
+        <p>Slack allows for a maximum of 1000 files to be deleted at one go. If your files are more than 100, refresh and repeat untill they are all deleted.</p>
       </div>
       <div>
         <label>Slack token:
@@ -41,9 +41,17 @@
       </div>
       <div>
         <label>Files created date, 
-          From: <input type="date" ng-model="slackInfoVm.fromDate" name="fromDate">
-          To: <input type="date" ng-model="slackInfoVm.toDate" name="toDate">
         </label>
+        <div>
+        <label>From: 
+          <input type="date" ng-model="slackInfoVm.fromDate" name="fromDate"><br />
+        </label>
+        </div>
+        <div>
+        <label>To: 
+          <input type="date" ng-model="slackInfoVm.toDate" name="toDate">
+        </label>
+        </div>
       </div>
       <div>
         <a class="btn btn-danger" href ng-click="slackInfoVm.deleteFiles()" analytics-on="click" analytics-event="DeleteFilesClicked">Delete files</a>

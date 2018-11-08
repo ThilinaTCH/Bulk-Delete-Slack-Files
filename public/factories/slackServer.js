@@ -24,6 +24,7 @@
         ts_from: Math.round(d_from / 1000),
         ts_to: Math.round(d_to / 1000),
         user: user == "all" ? "" : user,
+        count: 1000,
         token: token
       };
       return $http({
