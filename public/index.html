@@ -21,27 +21,28 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container" style="padding-right: 145px; padding-left: 145px;">
     <div slack-info>
-      <h1>Huubhr - Delete Slack Files in Bulk</h1>
-      <div>
+      <h1 style="text-align: center;">Huubhr - Delete Slack Files</h1>
+      <div style="text-align: center;">
         <p>Slack allows for a maximum of 1000 files to be deleted at one go. If your files are more than 100, refresh and repeat untill they are all deleted.</p>
       </div>
-      <p>Use following url (Legacy information Section) to generate a slack token to use here - <a href="https://api.slack.com/custom-integrations/legacy-tokens" target="_blank">Generate Slack Token</a><br/>
+      <p style="text-align: center;">Use following url (Legacy information Section) to generate a slack token to use here - <a href="https://api.slack.com/custom-integrations/legacy-tokens" target="_blank">Generate Slack Token</a><br/>
       **You should be logged into your slack team to view token creation part in above page</p>
+      <br/>
       <div>
         <label>Slack token:
           <input style="width: 350px;" ng-model="slackInfoVm.token" type="text" />
         </label>
       </div>
       <div>
-        <label>I am
+        <label>User:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <select ng-model="slackInfoVm.user" ng-options="users.id as users.name for users in slackInfoVm.usersList">
             <option value="">-- select a member --</option>
           </select>
         </label>
       </div>
-      <div>
+      <div style="margin-top:10px;">
         <label>Files created date,
         </label>
         <div>
@@ -50,19 +51,19 @@
         </label>
         </div>
         <div>
-        <label>To:
+        <label>To:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="date" ng-model="slackInfoVm.toDate" name="toDate">
         </label>
         </div>
       </div>
-      <div>
-        <a class="btn btn-danger" href ng-click="slackInfoVm.deleteFiles()" analytics-on="click" analytics-event="DeleteFilesClicked">Delete files</a>
+      <div style="margin-top:10px;">
+        <a class="btn btn-warning" href ng-click="slackInfoVm.deleteFiles()" analytics-on="click" analytics-event="DeleteFilesClicked">Delete</a>
       </div>
       <div style="margin-top:25px;">
         <p> Files deleted: <strong ng-cloak>{{slackInfoVm.deleteCount}}</strong></p>
       </div>
       <div>
-        <textarea ng-cloak rows="10" cols="50" ng-model="slackInfoVm.response"></textarea>
+        <textarea ng-cloak rows="15" cols="60" ng-model="slackInfoVm.response"></textarea>
       </div>
     </div>
   </div>
@@ -80,7 +81,6 @@
   })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
   ga('create', 'UA-64370781-1', 'auto');
-  //ga('send', 'pageview');
   </script>
 </body>
 
