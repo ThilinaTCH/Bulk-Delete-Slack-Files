@@ -27,7 +27,8 @@
         .then(function(data) {
           var users = data.data.members;
           if(users && users.length > 0){
-            var allUsers = [{id: "all", name: "All"}];
+            // var allUsers = [{id: "all", name: "All"}];
+            var allUsers = [];
             users = allUsers.concat(data.data.members);
           }
           slackInfoVm.usersList = users;
